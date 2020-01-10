@@ -1,0 +1,17 @@
+.card-title {
+    text-align: center;
+}
+
+.card {
+   border: 0px; 
+}
+
+.card-text {
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #3e0e40;
+    border: 0px;
+    margin-left: 180px;
+}
