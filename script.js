@@ -1,32 +1,27 @@
-var questionsElem = document.querySelector("#questions");
+var main = document.querySelector("main");
 
-var questions = [
-    {
-        title: "Commonly used data types DO NOT include:",
-        choices: ["strings", "booleans", "alerts", "numbers"],
-        answer: "alerts"
-    },
-    {
-        title: "The condition in an if / else statement is enclosed within_____.",
-        choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-        answer: "parentheses"
-    },
-    {
-        title: "Arrays in JavaScript can be used to store_____.",
-        choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
-        answer: "all of the above"
-    },
-    {
-        title: "String values must be enclosed within _____ when being assigned to variables.",
-        choices: ["commas", "curly brackets", "quotes", "parentheses"],
-        answer: "quotes"
-    },
-    {
-        title: "A very useful tool used during development and debugging for printing content to the debugger is.",
-        choices: ["JavaScript", "terminal/bash", "for loops", "console.log"],
-        answer: "console.log"
-    },
-];
+var currentQuestion = 0;
+
+var renderQuestions = function() {
+
+    //main.innerHTML = " ";
+
+    myClass.forEach(function (question, indexQuestion){
+        var div = document.createElement("div");
+
+        //If item isn't current question, hide it
+        if(currentQuestion != indexQuestion){
+            div.setAttribute("class", "hide");
+        }
+
+        //Create h1
+        var h5 = document.createElement("h1");
+        h5.textContent = question.title;
+    })
+
+}
+
+
 
 //Traverse through titles
 // for(var count=0; count < Array.length; count++){
@@ -45,25 +40,28 @@ var questions = [
                       </ul>
                     </div>
                   </div> */}
-for(var count=0; count < questions.length; count++){
-    var card = document.createElement("div");
-    card.setAttribute("class", "card container");
+// for(var count=0; count < questions.length; count++){
+//     var card = document.createElement("div");
+//     card.setAttribute("class", "card container");
 
-    var cardBody = document.createElement("div");
-    cardBody.setAttribute("class", "card-body");
+//     var cardBody = document.createElement("div");
+//     cardBody.setAttribute("class", "card-body");
 
-    var h5 = document.createElement("h5");
-    h5.setAttribute("class", "card-title");
-    var title = questions[count].title;
-    h5.textContent = title;
-    cardBody.append(h5);
+//     var h5 = document.createElement("h5");
+//     h5.setAttribute("class", "card-title");
+//     var title = questions[count].title;
+//     h5.textContent = title;
+//     cardBody.append(h5);
+
+//     var unorderedList = document.createElement("ul");
+//     unorderedList.setAttribute("class", "ul");
+//     var answerChoices = questions[count].choices;
+//     unorderedList.textContent = answerChoices;
+//     h5.append(unorderedList);
 
 
-
-
-
-    card.append(cardBody);
-    questionsElem.append(card);
+//     card.append(cardBody);
+//     questionsElem.append(card);
 
 
     // var ul=document.createElement("ul");
