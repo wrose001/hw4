@@ -13,9 +13,15 @@
 .btn-primary {
     background-color: #3e0e40;
     border: 0px;
-    margin-left: 180px;
+    margin: 4px;
 }
 
-#timer {
-    float: right;
+.nav {
+    justify-content: space-between;
+}
+
+#startBtn {
+        display: block;
+        width: 100px;
+        margin-left: 44%;
 }
