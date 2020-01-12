@@ -17,9 +17,50 @@ var renderQuestions = function() {
         //Create h1
         var h5 = document.createElement("h1");
         h5.textContent = question.title;
-    })
+
+        //Create ul
+        var ul = document.createElement("ul");
+
+        //Create li tags
+        question.choices.forEach(function(answerChoice){
+            var li = document.createElement("li");
+            li.textContent = answerChoice;
+
+            //Append li to ul tag
+            ul.append(li);
+        });
+
+            //Append h5 to div
+            div.append(h5);
+
+            //Append ul to div
+            div.append(ul);
+
+            //Append div (which now has the h5 and ul) to main element
+            main.append(div);
+    });
 
 }
+
+//Initial - ender questions
+renderQuestions();
+
+    //Use delegator strategy, have event listener on predefined element main
+    //Wait for clicks on main element
+    main.addEventListener("click", function(event){
+
+        var targetedClick = event.target;
+
+        //Only target li tag to proceed to next classroom
+        if(targetedClick.matches("li")){
+
+            console.log(targetedClick.textContent);
+            currentQuestion++;
+            renderQuestions();
+
+        }
+
+    });
 
 
 
@@ -66,6 +107,6 @@ var renderQuestions = function() {
 
     // var ul=document.createElement("ul");
     // 
-}
+// }
 
 //Need another for loop to traverse through choices, needs to be nested
