@@ -20,8 +20,22 @@
     justify-content: space-between;
 }
 
-#startBtn {
-        display: block;
-        width: 100px;
-        margin-left: 44%;
+.center-btn {
+    display:block;
+    margin: 0 auto; /* calvin notes forgot to mention we could have centered start btn using margin 0 auto */
 }
+
+/* calvin notes: initially we want to hide the main(questions) and completed section*/ 
+#main, #completed {
+    display: none;
+}
+
+/* calvin notes: helper classes we will use later in js to help us show and hide questions and sections */
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
