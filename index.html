@@ -15,89 +15,41 @@
               <a class="nav-link">Link</a>
             </nav> 
       </div>
-      <div class="main">
+      <div id="start" class="card container">
+        <div class="card-body">
+          <h5 class="card-title">Code Quiz Challenge</h5>
+          <p class="card-text">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect responses will be penalized - 10 seconds will be deducted for each wrong answer!</p>
+          <button id="startBtn" class="btn btn-primary center-btn">Start Quiz</button>
+        </div>
+      </div>
+
+      <!-- we will build the quetions as cards in this section using JS -->
+      <!-- this is hidden until user clicks start quiz-->
+      <div id="main">
 
       </div>
-            <!-- <div class="card container">
-                    <div class="card-body">
-                      <h5 class="card-title">Code Quiz Challenge</h5>
-                      <p class="card-text">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect responses will be penalized - 10 seconds will be deducted for each wrong answer!</p>
-                      <li id="startBtn" class="btn btn-primary">Start Quiz</li>
-                    </div>
-              </div>
-                  <div class="card container">
-                    <div class="card-body">
-                      <h5 class="card-title"></h5>
-                      <p class="card-text"></p>
-                      <ul>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="card container">
-                    <div class="card-body">
-                      <h5 class="card-title"></h5>
-                      <p class="card-text"></p>
-                      <ul><li id="startBtn" class="btn btn-primary"></li>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="card container">
-                    <div class="card-body">
-                      <h5 class="card-title"></h5>
-                      <p class="card-text"></p>
-                      <ul><li id="startBtn" class="btn btn-primary"></li>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="card container">
-                    <div class="card-body">
-                      <h5 class="card-title"></h5>
-                      <p class="card-text"></p>
-                      <ul><li id="startBtn" class="btn btn-primary"></li>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                        <li id="startBtn" class="btn btn-primary"></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="card container">
-                    <div class="card-body">
-                      <h5 class="card-title">Question</h5>
-                      <p class="card-text">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect responses will be penalized - 10 seconds will be deducted for each wrong answer!</p>
-                      <ul><li id="startBtn" class="btn btn-primary">Start Quiz</li>
-                        <li id="startBtn" class="btn btn-primary">Start Quiz</li>
-                        <li id="startBtn" class="btn btn-primary">Start Quiz</li>
-                        <li id="startBtn" class="btn btn-primary">Start Quiz</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="card container">
-                    <div class="card-body">
-                      <h5 class="card-title">All done!</h5>
-                      <p class="card-text">Your final score is</p>
-                      <p>Enter initials</p>
-                      <input>
-                      <button>Submit</button>
-                    </div>
-              </div>
-              <div class="card container">
-                <div class="card-body">
-                  <h5 class="card-title">High Scores</h5>
-                  <p class="card-text"></p>
-                  <button>Go Back</button>
-                  <button>Clear Highscores</button>
-                </div> -->
+
+      <!-- this is hidden until user clicks start quiz-->
+      <div id="completed">
+        <div class="card container">
+          <div class="card-body">
+            <h5 class="card-title">All done!</h5>
+            <p class="card-text">Your final score is</p>
+            <p>Enter initials</p>
+            <input>
+            <button>Submit</button>
           </div>
+        </div>
+        <div class="card container">
+          <div class="card-body">
+            <h5 class="card-title">High Scores</h5>
+            <p class="card-text"></p>
+            <button>Go Back</button>
+            <button>Clear Highscores</button>
+          </div>
+        </div>
+      </div>
+
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
