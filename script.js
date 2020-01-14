@@ -49,8 +49,30 @@ var renderQuestions = function() {
             button.textContent = answerChoice;
             button.setAttribute("class", "btn btn-primary center-btn");
 
+            button.addEventListener("click", function(event){
+                var correct = event.target;
+
+                if (correct.matches("answer")){
+                    var state = correct.getAttribute("data-answer");
+                    if (state === true) {
+                        alert("Correct!");
+                    } else {
+                        alert("Wrong!");
+                    }
+                }
+            });
+
             /*
                 Weston right here it may be best to add the answer to the button.
+
+                button.addEventListener("click", function(event){
+                    var correct = event.target;
+
+                    if (correct.matches("answer")){
+                        var state = correct.getAttribute("data-answer");
+                        if (state === "true")
+                    }
+                })
 
                 Here's an option you can do:
 
