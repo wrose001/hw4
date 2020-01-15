@@ -44,35 +44,33 @@ var renderQuestions = function() {
         choicesSection.setAttribute("class", "choices");
 
         // Create button choice tags
-        question.choices.forEach(function(answerChoice){
+        question.choices.forEach(function(choice){
             var button = document.createElement("button");
-            button.textContent = answerChoice;
+            button.textContent = choice;
             button.setAttribute("class", "btn btn-primary center-btn");
+            //console.log("answer" + question.answer)
+            //console.log(choice)
+            if (choice === question.answer) {
+                button.setAttribute("data-answer", "true");
+            } else {
+                button.setAttribute("data-answer", "false");
+            }
+            // button.addEventListener("click", function(event){
+            //     var correct = event.target;
+            
+            
+            // console.log(button.value);
 
-            button.addEventListener("click", function(event){
-                var correct = event.target;
+            // console.log(question);
+            // testAnswer();  
+            // });
 
-                if (correct.matches("answer")){
-                    var state = correct.getAttribute("data-answer");
-                    if (state === true) {
-                        alert("Correct!");
-                    } else {
-                        alert("Wrong!");
-                    }
-                }
-            });
+            // function(checkAnswer){
+            //     var rightAnswer = 
+            // }
 
             /*
                 Weston right here it may be best to add the answer to the button.
-
-                button.addEventListener("click", function(event){
-                    var correct = event.target;
-
-                    if (correct.matches("answer")){
-                        var state = correct.getAttribute("data-answer");
-                        if (state === "true")
-                    }
-                })
 
                 Here's an option you can do:
 
@@ -110,8 +108,14 @@ var renderQuestions = function() {
         questionSection.append(card); // finally append card to main div
     });
 
+
 }
 
+function testAnswer(){
+    if ("alerts" === question) {
+    alert("You're right!");
+} 
+}
 // Use delegator strategy, have event listener on predefined element main
 // Wait for clicks on main element
 questionSection.addEventListener("click", function(event){
@@ -120,8 +124,17 @@ questionSection.addEventListener("click", function(event){
     //Only target li tag to proceed to next classroom
     if(targetedClick.matches("button")) {
         console.log(targetedClick.textContent);
-        currentQuestion++;
+        
+        
+        //Add logic right or wrong
+        if (targetedClick.getAttribute("data-answer") === "true") {
+            console.log("yay correct");
+        } else {
+            console.log("sorry wrong");
+        }
 
+        
+        currentQuestion++;
         // currentQuestion that user see must be less than the size of our questions array.
         if(currentQuestion < questions.length) {
          renderQuestions();
