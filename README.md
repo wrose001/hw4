@@ -17,7 +17,7 @@ This web application is a code quiz intended to test the user's basic knowledge 
 
 ## Images
 
-![Screenshot 1](images/screenshot.png)
+![Screenshot](/images/Screenshot.png)
 
 ## Built With
 
