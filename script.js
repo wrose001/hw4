@@ -7,6 +7,40 @@ var completedSection = document.querySelector("#completed"); // Once quiz is com
 
 var currentQuestion = 0;
 
+var createTimer = function() {
+
+    var x = setInterval(function () {
+
+        var now = newDate().getTime();
+
+        var distance = countDownDate - now;
+
+        var seconds = Math.floor((distance % (1000 % 75)) / 1000);
+
+        document.getElementById("timer").innerHTML="Timer: " + seconds;
+
+        if(distance < 0) {
+            clearInterval(x);
+            document.getElementById("timer").innerHTML="0";
+        }
+
+    }, 1000);
+
+//     var navbar = document.createElement("div");
+//     navbar.setAttribute("class", "container-fluid");
+
+//     var timer = document.createElement("nav");
+//     nav.setAttribute("class", "nav");
+
+//     var navLink = document.createElement("nav-link");
+//     navLink.setAttribute("class", "nav-link");
+//     navLink.textContent = counter;
+//     nav.append(navLink);
+
+//     navbar.append(nav);
+
+// }
+
 var renderQuestions = function() {
 
     questionSection.innerHTML = " ";
@@ -111,11 +145,11 @@ var renderQuestions = function() {
 
 }
 
-function testAnswer(){
-    if ("alerts" === question) {
-    alert("You're right!");
-} 
-}
+// function testAnswer(){
+//     if ("alerts" === question) {
+//     alert("You're right!");
+// } 
+// }
 // Use delegator strategy, have event listener on predefined element main
 // Wait for clicks on main element
 questionSection.addEventListener("click", function(event){
@@ -150,6 +184,8 @@ questionSection.addEventListener("click", function(event){
         }
     }
 });
+
+//Add another event listener to add user initials and hide div after submit
 
 // Start the Quiz when user clicks on a start button
 startBtn.addEventListener("click", function(event) {
