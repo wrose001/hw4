@@ -22,7 +22,15 @@
 
 .center-btn {
     display:block;
-    margin: 0 auto; /* calvin notes forgot to mention we could have centered start btn using margin 0 auto */
+    margin: 4px auto; /* calvin notes forgot to mention we could have centered start btn using margin 0 auto */
+}
+
+#submitBtn, #goBack, #clearHighScores {
+    display:block;
+    margin: 4px auto;
+    background-color: #3e0e40;
+    border: 0px;
+    color: white;
 }
 
 /* calvin notes: initially we want to hide the main(questions) and completed section*/ 
@@ -41,5 +49,9 @@
 
 .highScores {
     display: none;
+}
+
+#highScores {
+    display: none !important;
 }
 

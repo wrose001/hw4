@@ -1,9 +1,17 @@
 var startSection = document.querySelector("#start"); // Start section that will show 1st, along with start button
 var startBtn = document.querySelector("#startBtn"); // button to start the quiz
+var submitBtn = document.querySelector("#submitBtn");// this is for the All done section after the last queston
+var goBack = document.querySelector("#goBack");
+var clearHighScores = document.querySelector("#clearHighScores");
+
 
 var questionSection = document.querySelector("#main"); // We use this selector to append all of the card layout questions, querySelector requires an id (#), or class (.), or tag (i.e. div). In our case we are grabbing the div by its id <div id="main">
 
 var completedSection = document.querySelector("#completed"); // Once quiz is complete we should show the completed section
+
+var enterName = document.querySelector("#enterName"); //This is for the enter initials section
+
+var highScores = document.querySelector("#highScores");
 
 var currentQuestion = 0;
 
@@ -25,7 +33,7 @@ var createTimer = function() {
         }
 
     }, 1000);
-
+};
 //     var navbar = document.createElement("div");
 //     navbar.setAttribute("class", "container-fluid");
 
@@ -143,7 +151,7 @@ var renderQuestions = function() {
     });
 
 
-}
+};
 
 // function testAnswer(){
 //     if ("alerts" === question) {
@@ -180,6 +188,7 @@ questionSection.addEventListener("click", function(event){
 
             questionSection.setAttribute("class", 'hide');
             completedSection.setAttribute("class", "show");
+            
 
         }
     }
@@ -191,7 +200,14 @@ questionSection.addEventListener("click", function(event){
 startBtn.addEventListener("click", function(event) {
     questionSection.setAttribute("class", "show");
     startSection.setAttribute("class", "hide");
-
+    
     // Render Questions
     renderQuestions();
+});
+
+
+
+submitBtn.addEventListener("click", function(event) {
+    highScores.setAttribute("class", "show");
+    completed.setAttribute("class", "hide");
 });
