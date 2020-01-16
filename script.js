@@ -3,7 +3,8 @@ var startBtn = document.querySelector("#startBtn"); // button to start the quiz
 var submitBtn = document.querySelector("#submitBtn");// this is for the All done section after the last queston
 var goBack = document.querySelector("#goBack");
 var clearHighScores = document.querySelector("#clearHighScores");
-
+var counter = document.querySelector("#startBtn");
+timeleft = 75;
 
 var questionSection = document.querySelector("#main"); // We use this selector to append all of the card layout questions, querySelector requires an id (#), or class (.), or tag (i.e. div). In our case we are grabbing the div by its id <div id="main">
 
@@ -15,39 +16,20 @@ var highScores = document.querySelector("#highScores");
 
 var currentQuestion = 0;
 
-var createTimer = function() {
+var count = localStorage.getItem("count");
 
-    var x = setInterval(function () {
+var x = setInterval(function () {
+    document.getElementById("timer").innerHTML = timeleft;
+    timeleft -= 1;
+    timeleft.textContent = " " + timeleft;
 
-        var now = newDate().getTime();
+    if(timeleft <= 0) {
+        clearInterval(timeleft);
+        document.getElementById("timer").innerHTML="Time is up!";
+    }
 
-        var distance = countDownDate - now;
+}, 1000);
 
-        var seconds = Math.floor((distance % (1000 % 75)) / 1000);
-
-        document.getElementById("timer").innerHTML="Timer: " + seconds;
-
-        if(distance < 0) {
-            clearInterval(x);
-            document.getElementById("timer").innerHTML="0";
-        }
-
-    }, 1000);
-};
-//     var navbar = document.createElement("div");
-//     navbar.setAttribute("class", "container-fluid");
-
-//     var timer = document.createElement("nav");
-//     nav.setAttribute("class", "nav");
-
-//     var navLink = document.createElement("nav-link");
-//     navLink.setAttribute("class", "nav-link");
-//     navLink.textContent = counter;
-//     nav.append(navLink);
-
-//     navbar.append(nav);
-
-// }
 
 var renderQuestions = function() {
 
@@ -55,21 +37,6 @@ var renderQuestions = function() {
 
     questions.forEach(function (question, indexQuestion) {
 
-        /*
-            The following code within this function will build cards under the main div like such:
-
-            <div class="card container">
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <div class="choices">
-                        <button class="btn btn-primary center-btn">choice1</button>
-                        <button class="btn btn-primary center-btn">choice2</button>
-                        <button class="btn btn-primary center-btn">choice3</button>
-                        <button class="btn btn-primary center-btn">choice4</button>
-                    </div>
-                </div>
-            </div>
-        */
         var card = document.createElement("div");
         card.setAttribute("class", "card container");
 
@@ -153,11 +120,6 @@ var renderQuestions = function() {
 
 };
 
-// function testAnswer(){
-//     if ("alerts" === question) {
-//     alert("You're right!");
-// } 
-// }
 // Use delegator strategy, have event listener on predefined element main
 // Wait for clicks on main element
 questionSection.addEventListener("click", function(event){
@@ -170,9 +132,9 @@ questionSection.addEventListener("click", function(event){
         
         //Add logic right or wrong
         if (targetedClick.getAttribute("data-answer") === "true") {
-            console.log("yay correct");
+            document.write("Correct!");
         } else {
-            console.log("sorry wrong");
+            document.write("Wrong!");
         }
 
         
@@ -200,7 +162,7 @@ questionSection.addEventListener("click", function(event){
 startBtn.addEventListener("click", function(event) {
     questionSection.setAttribute("class", "show");
     startSection.setAttribute("class", "hide");
-    
+
     // Render Questions
     renderQuestions();
 });
