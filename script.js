@@ -64,43 +64,6 @@ var renderQuestions = function() {
             } else {
                 button.setAttribute("data-answer", "false");
             }
-            // button.addEventListener("click", function(event){
-            //     var correct = event.target;
-            
-            
-            // console.log(button.value);
-
-            // console.log(question);
-            // testAnswer();  
-            // });
-
-            // function(checkAnswer){
-            //     var rightAnswer = 
-            // }
-
-            /*
-                Weston right here it may be best to add the answer to the button.
-
-                Here's an option you can do:
-
-                You could CREATE a data attribute
-                Refer to activity:
-                https://github.com/the-Coding-Boot-Camp-at-UT/UT-AUS-FSF-PT-12-2019-U-C/tree/master/04-Web-APIs/01-Activities/24-Ins_Data-Attributes
-
-                i.e. correct choice is 
-                <button data-answer="true">choice1</button>
-
-                incorrect choice is
-                <button data-answer="false">choice2</button>
-                <button data-answer="false">choice3</button>
-                <button data-answer="false">choice4</button>
-
-                Later in the questionSection.addEventListener section
-                You can read what the user clicked on. If the user clicked
-                on a button that has the data-answer attribute set to "true"
-                that means question was correct, if "false" then its wrong
-
-            */
 
             //Append button to div choices tag
             choicesSection.append(button);
@@ -132,27 +95,29 @@ questionSection.addEventListener("click", function(event){
         
         //Add logic right or wrong
         if (targetedClick.getAttribute("data-answer") === "true") {
-            document.write("Correct!");
+            questionSection.append("Correct!");
         } else {
-            document.write("Wrong!");
+            questionSection.append("Wrong!");
         }
 
-        
-        currentQuestion++;
-        // currentQuestion that user see must be less than the size of our questions array.
-        if(currentQuestion < questions.length) {
-         renderQuestions();
-        } else {
+        setTimeout(function() {
 
-            /*
-            This means the user has clicked through all the questions (completed all questions). We should now show the next div which is the "completed" section that's in the index.html
-            */
+            currentQuestion++;
+            // currentQuestion that user see must be less than the size of our questions array.
+            if(currentQuestion < questions.length) {
+             renderQuestions();
+            } else {
+    
+                /*
+                This means the user has clicked through all the questions (completed all questions). We should now show the next div which is the "completed" section that's in the index.html
+                */
+    
+                questionSection.setAttribute("class", 'hide');
+                completedSection.setAttribute("class", "show");
+    
+            }
+        }, 2000);
 
-            questionSection.setAttribute("class", 'hide');
-            completedSection.setAttribute("class", "show");
-            
-
-        }
     }
 });
 
@@ -172,4 +137,10 @@ startBtn.addEventListener("click", function(event) {
 submitBtn.addEventListener("click", function(event) {
     highScores.setAttribute("class", "show");
     completed.setAttribute("class", "hide");
+});
+
+goBack.addEventListener("click", function(event) {
+    highScores.setAttribute("class", "hide");
+    startSection.setAttribute("class", "show");
+    renderQuestions();
 });
