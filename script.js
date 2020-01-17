@@ -16,7 +16,7 @@ var highScores = document.querySelector("#highScores");
 
 var currentQuestion = 0;
 
-var count = localStorage.getItem("count");
+// var count = localStorage.getItem("count");
 
 var x = setInterval(function () {
     document.getElementById("timer").innerHTML = timeleft;
@@ -144,7 +144,7 @@ submitBtn.addEventListener("click", function(event) {
         p.innerHTML = "Score cannot be registered if you don't provide your initials!";
     } else {
         console.log("true: " + userInputInitials);
-        p.innerText = "Hurray! You score has been registered!";
+        p.innerText = "Hurray! Your score has been registered!";
         localStorage.setItem("userInputInitials", userInputInitials);
     };
 
