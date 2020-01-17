@@ -135,6 +135,19 @@ startBtn.addEventListener("click", function(event) {
 
 
 submitBtn.addEventListener("click", function(event) {
+    var userInputInitials = document.querySelector("input").value;
+    var p = document.getElementById("initals");
+
+
+    if(!userInputInitials){
+        console.log("false:" +  userInputInitials);
+        p.innerHTML = "Score cannot be registered if you don't provide your initials!";
+    } else {
+        console.log("true: " + userInputInitials);
+        p.innerText = "Hurray! You score has been registered!";
+        localStorage.setItem("userInputInitials", userInputInitials);
+    };
+
     highScores.setAttribute("class", "show");
     completed.setAttribute("class", "hide");
 });
