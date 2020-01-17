@@ -136,8 +136,8 @@ startBtn.addEventListener("click", function(event) {
 
 submitBtn.addEventListener("click", function(event) {
     var userInputInitials = document.querySelector("input").value;
-    var p = document.getElementById("initals");
-
+    var p = document.getElementById("initials");
+    console.log("this is the p element " + p);
 
     if(!userInputInitials){
         console.log("false:" +  userInputInitials);
